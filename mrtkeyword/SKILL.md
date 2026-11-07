@@ -1,18 +1,18 @@
 ---
 name: mrtkeyword
-description: "Dựng video dọc 9:16 (TikTok, Reels, Shorts) tự động từ A đến Z từ MỘT video quay người nói hoặc MỘT file giọng đọc: nghe lời, cắt chỗ vấp và khoảng lặng, tự chọn hiệu ứng keyword cho từng câu (62 hiệu ứng có code), tự viết nội dung hiệu ứng, phụ đề, nhạc nền, âm thanh, ảnh bìa, render MP4. Dùng khi người dùng gọi /mrtkeyword hoặc $mrtkeyword, nói 'dựng video này', 'làm video từ video quay / file ghi âm', 'chèn hiệu ứng keyword', '/effects <tên>'. Không dùng để sửa video có sẵn hiệu ứng hay làm video ngang."
+description: "Dựng video dọc 9:16 (TikTok, Reels, Shorts) tự động từ A đến Z từ MỘT video quay người nói hoặc MỘT file giọng đọc: nghe lời, cắt chỗ vấp và khoảng lặng, tự chọn hiệu ứng keyword cho từng câu (62 hiệu ứng có code), tự viết nội dung hiệu ứng, phụ đề, nhạc nền, âm thanh, ảnh bìa, render MP4. Dùng khi người dùng gọi /dungvideo, $dungvideo, /mrtkeyword, $mrtkeyword, nói 'dựng video này', 'dựng video', 'làm video từ video quay / file ghi âm', 'chèn hiệu ứng keyword', '/effects <tên>'. Không dùng để sửa video có sẵn hiệu ứng hay làm video ngang."
 ---
 
 # MRT Keyword — đưa video hoặc âm thanh vào, ra video hoàn chỉnh
 
-Skill này chạy trên **Claude Code** (gọi `/mrtkeyword`) và **Codex** (gọi `$mrtkeyword`); chỗ nào ghi "Agent" là trợ lý đang chạy skill. Trả lời bằng tiếng Việt. Người dùng chỉ cần đưa **một file**: video quay người nói (dọc hoặc ngang) hoặc âm thanh giọng đọc (mp3/wav/m4a). Nhạc nền, ảnh minh hoạ là tuỳ chọn.
+Skill này chạy trên **Claude Code** (gọi `/dungvideo` hoặc `/mrtkeyword`) và **Codex** (gọi `$dungvideo` hoặc `$mrtkeyword`); chỗ nào ghi "Agent" là trợ lý đang chạy skill. Trả lời bằng tiếng Việt. Người dùng chỉ cần đưa **một file**: video quay người nói (dọc hoặc ngang) hoặc âm thanh giọng đọc (mp3/wav/m4a). Nhạc nền, ảnh minh hoạ là tuỳ chọn.
 
 **Mặc định chạy thẳng từ A đến Z, không hỏi gì**: tự đặt tên dự án, tự chọn keyword, tự viết nội dung hiệu ứng, tự kiểm ảnh tĩnh và sửa lỗi, render, giao file. Chỉ dừng lại gửi ảnh tĩnh để duyệt khi người dùng nói muốn xem trước ("cho tôi duyệt", "gửi ảnh trước"). Không có nhạc nền thì làm không nhạc; không có lời kêu gọi trong video thì CTA mời theo dõi kênh. Trong lúc chạy, báo tiến độ ngắn gọn sau mỗi bước.
 
 ```
-SK  = <thư mục skill này>                     (thư mục chứa SKILL.md)
-PY  = "$SK/tools/.venv/Scripts/python.exe"    (do CAI-DAT.bat tạo; chạy MỌI script bằng python này)
-OUT = "%USERPROFILE%/Videos/Keyword FX"       (mỗi video một thư mục dự án; thành phẩm vào "$OUT/Thanh pham")
+SK  = <thư mục skill này>                     (thư mục chứa SKILL.md, vd: ~/mrtkeyword/mrtkeyword)
+PY  = "$SK/tools/.venv/bin/python" (hoặc "$SK/tools/.venv/Scripts/python.exe" trên Windows)
+OUT = "$HOME/Movies/Keyword FX" hoặc "$HOME/Videos/Keyword FX"   (mỗi video một thư mục dự án; thành phẩm vào "$OUT/Thanh pham")
 PRJ = "$OUT/<ten-video>"                      (tên kebab-case không dấu, tự đặt từ nội dung)
 ```
 
